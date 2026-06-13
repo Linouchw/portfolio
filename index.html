@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lina Saadallah — Data & IA Student Portfolio</title>
+  <meta name="description" content="Lina Saadallah portfolio — Data & IA student, projects, learning journal and internship availability." />
+
+  <style>
+    :root {
+      --sky: #BED9F4;
+      --sky2: #DDEEFF;
+      --butter: #FEFDD0;
+      --butter2: #FFF7AD;
+      --burgundy: #4B0F1B;
+      --wine: #7A2034;
+      --cream: #FFF8E8;
+      --glass: rgba(255, 248, 232, 0.72);
+      --line: rgba(75, 15, 27, 0.14);
+      --shadow: 0 28px 80px rgba(75, 15, 27, 0.16);
+      --radius: 34px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--burgundy);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(254, 253, 208, 0.95), transparent 28%),
+        radial-gradient(circle at 85% 18%, rgba(190, 217, 244, 0.95), transparent 34%),
+        linear-gradient(135deg, #fffdf0 0%, var(--sky) 48%, var(--butter) 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.2;
+      background-image:
+        linear-gradient(rgba(75, 15, 27, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(75, 15, 27, 0.04) 1px, transparent 1px);
+      background-size: 44px 44px;
+      z-index: 0;
+    }
+
+    h1, h2, h3, .logo {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1;
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topbar {
+      position: fixed;
+      z-index: 50;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(1180px, calc(100% - 28px));
+      height: 76px;
+      border-radius: 999px;
+      padding: 0 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 248, 232, 0.78);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 60px rgba(75, 15, 27, 0.1);
+    }
+
+    .logo {
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .logo span {
+      color: var(--wine);
+    }
+
+    .nav {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav a,
+    .nav button,
+    .menu {
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .nav button,
+    .menu {
+      border: 0;
+      background: var(--burgundy);
+      color: var(--cream);
+      border-radius: 999px;
+      padding: 10px 14px;
+      cursor: pointer;
+    }
+
+    .menu {
+      display: none;
+    }
+
+    .hero,
+    .section {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: 100vh;
+      padding: 132px 0 78px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .label {
+      color: var(--wine);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.75rem;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      max-width: 900px;
+      font-size: clamp(3.4rem, 7.7vw, 7.4rem);
+      letter-spacing: -0.075em;
+    }
+
+    .intro {
+      margin-top: 26px;
+      max-width: 660px;
+      font-size: 1.12rem;
+      color: rgba(75, 15, 27, 0.75);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 23px;
+      border-radius: 999px;
+      font-weight: 900;
+      transition: 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+    }
+
+    .btn-dark {
+      background: var(--burgundy);
+      color: var(--cream);
+      box-shadow: 0 18px 40px rgba(75, 15, 27, 0.22);
+    }
+
+    .btn-light {
+      background: rgba(255, 248, 232, 0.72);
+      border: 1px solid var(--line);
+    }
+
+    .mini-grid {
+      margin-top: 44px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 680px;
+    }
+
+    .mini-grid div {
+      padding: 18px;
+      border-radius: 24px;
+      background: rgba(255, 248, 232, 0.58);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+    }
+
+    .mini-grid strong {
+      display: block;
+      font-family: Georgia, serif;
+      font-size: 1.8rem;
+    }
+
+    .mini-grid span {
+      font-weight: 800;
+      color: rgba(75, 15, 27, 0.68);
+    }
+
+    .hero-panel {
+      border-radius: 44px;
+      padding: 24px;
+      background:
+        linear-gradient(135deg, rgba(255, 248, 232, 0.82), rgba(190, 217, 244, 0.56)),
+        radial-gradient(circle at 100% 0%, rgba(254, 253, 208, 0.9), transparent 40%);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border: 1px solid rgba(75, 15, 27, 0.11);
+      border-radius: 32px;
+      pointer-events: none;
+    }
+
+    .avatar-card {
+      width: 100%;
+      max-width: 290px;
+      aspect-ratio: 1;
+      margin: 0 auto 18px;
+      border-radius: 42px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 50% 38%, var(--butter) 0 28%, transparent 29%),
+        linear-gradient(135deg, var(--sky), var(--butter));
+      border: 8px solid rgba(255, 248, 232, 0.9);
+      box-shadow: 0 18px 40px rgba(75, 15, 27, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avatar-card::before {
+      content: "LS";
+      position: relative;
+      z-index: 2;
+      font-family: Georgia, serif;
+      font-size: 5.8rem;
+      font-weight: 900;
+      color: var(--burgundy);
+    }
+
+    .avatar-card::after {
+      content: "</>";
+      position: absolute;
+      bottom: 24px;
+      right: 28px;
+      font-family: Georgia, serif;
+      font-size: 2rem;
+      opacity: 0.24;
+    }
+
+    .status,
+    .panel-block {
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 248, 232, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 18px;
+      margin-top: 14px;
+    }
+
+    .status {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-weight: 800;
+    }
+
+    .status-dot {
+      width: 12px;
+      height: 12px;
+      background: #45b476;
+      box-shadow: 0 0 0 7px rgba(69, 180, 118, 0.14);
+      border-radius: 50%;
+      flex: 0 0 auto;
+      margin-top: 7px;
+    }
+
+    .small-title {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.72rem;
+      color: var(--wine);
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .panel-block h2 {
+      font-size: 2.4rem;
+    }
+
+    .section {
+      padding: 102px 0;
+    }
+
+    .section-title {
+      max-width: 830px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2.6rem, 5.5vw, 5.5rem);
+      letter-spacing: -0.06em;
+    }
+
+    .about-layout {
+      margin-top: 46px;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 28px;
+    }
+
+    .about-text,
+    .info-card,
+    .project-card,
+    .skills-board,
+    .timeline-item,
+    .note,
+    .contact-card {
+      background: var(--glass);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 18px 56px rgba(75, 15, 27, 0.11);
+      backdrop-filter: blur(18px);
+    }
+
+    .about-text {
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-text p + p {
+      margin-top: 18px;
+    }
+
+    .about-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .info-card {
+      padding: 26px;
+    }
+
+    .info-card h3,
+    .note h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .about-text p,
+    .info-card p,
+    .project-content p,
+    .skills-board p,
+    .timeline-item p,
+    .note p,
+    .contact-card p {
+      color: rgba(75, 15, 27, 0.75);
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .project-card {
+      overflow: hidden;
+      transition: 0.25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+
+    .project-card.big {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .project-visual {
+      min-height: 320px;
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--sky), var(--butter));
+    }
+
+    .mock-window {
+      width: 100%;
+      max-width: 520px;
+      min-height: 260px;
+      border-radius: 26px;
+      background: rgba(255, 248, 232, 0.85);
+      border: 1px solid var(--line);
+      padding: 22px;
+      box-shadow: 0 22px 60px rgba(75, 15, 27, 0.14);
+    }
+
+    .window-dots span {
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--burgundy);
+      margin-right: 7px;
+      opacity: 0.8;
+    }
+
+    .mock-title {
+      font-family: Georgia, serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      margin: 28px 0 16px;
+    }
+
+    .mock-lines div {
+      height: 14px;
+      border-radius: 999px;
+      background: rgba(75, 15, 27, 0.16);
+      margin-bottom: 12px;
+    }
+
+    .mock-lines div:nth-child(1) { width: 90%; }
+    .mock-lines div:nth-child(2) { width: 70%; }
+    .mock-lines div:nth-child(3) { width: 82%; }
+
+    .mock-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .mock-cards div {
+      height: 64px;
+      border-radius: 16px;
+      background: rgba(190, 217, 244, 0.62);
+    }
+
+    .project-content {
+      padding: 28px;
+    }
+
+    .tag {
+      display: inline-flex;
+      width: fit-content;
+      background: var(--butter);
+      color: var(--wine);
+      border: 1px solid var(--line);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 16px;
+    }
+
+    .project-content h3 {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+    }
+
+    .project-content ul {
+      margin: 18px 0;
+      padding-left: 18px;
+      color: rgba(75, 15, 27, 0.8);
+      font-weight: 700;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .chips span {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 8px 11px;
+      background: rgba(190, 217, 244, 0.56);
+      border: 1px solid var(--line);
+      font-size: 0.8rem;
+      font-weight: 900;
+    }
+
+    .skills-board {
+      margin-top: 46px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      overflow: hidden;
+    }
+
+    .skills-board div {
+      padding: 28px;
+      border-right: 1px solid var(--line);
+    }
+
+    .skills-board div:last-child {
+      border-right: 0;
+    }
+
+    .skills-board h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .timeline-list {
+      margin-top: 46px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      padding: 22px 28px;
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 20px;
+    }
+
+    .timeline-item span {
+      font-family: Georgia, serif;
+      font-size: 1.7rem;
+      font-weight: 800;
+    }
+
+    .timeline-item p {
+      font-weight: 700;
+    }
+
+    .journal-grid {
+      margin-top: 46px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .note {
+      padding: 28px;
+    }
+
+    .note span {
+      font-family: Georgia, serif;
+      font-size: 3rem;
+      opacity: 0.5;
+      font-weight: 800;
+    }
+
+    .note h3 {
+      margin-top: 12px;
+    }
+
+    .contact-card {
+      padding: 58px;
+      text-align: center;
+      background:
+        linear-gradient(135deg, rgba(255, 248, 232, 0.88), rgba(254, 253, 208, 0.75)),
+        radial-gradient(circle at 20% 0%, rgba(190, 217, 244, 0.9), transparent 38%);
+    }
+
+    .contact-card h2 {
+      font-size: clamp(3rem, 6vw, 5.6rem);
+      letter-spacing: -0.06em;
+      margin-bottom: 16px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .contact-links a {
+      background: var(--burgundy);
+      color: var(--cream);
+      border-radius: 999px;
+      padding: 12px 16px;
+      font-weight: 900;
+    }
+
+    footer {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 38px 16px;
+      font-weight: 800;
+      color: rgba(75, 15, 27, 0.66);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .about-layout,
+      .project-card.big,
+      .skills-board,
+      .journal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .work-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-board div {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .skills-board div:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .topbar {
+        height: 66px;
+        top: 10px;
+      }
+
+      .nav {
+        position: absolute;
+        top: 74px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        padding: 18px;
+        background: var(--cream);
+        border: 1px solid var(--line);
+        border-radius: 26px;
+        box-shadow: var(--shadow);
+      }
+
+      .nav.open {
+        display: flex;
+      }
+
+      .menu {
+        display: inline-flex;
+      }
+
+      .hero {
+        padding-top: 110px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.2rem, 16vw, 5rem);
+      }
+
+      .mini-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 76px 0;
+      }
+
+      .section-title h2 {
+        font-size: clamp(2.6rem, 14vw, 4.3rem);
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        padding: 34px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="logo" href="#home">Lina<span>.</span></a>
+    <nav class="nav" id="nav">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#journal">Journal</a>
+      <a href="#contact">Contact</a>
+      <button id="langBtn">FR</button>
+    </nav>
+    <button class="menu" id="menuBtn">Menu</button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy reveal">
+        <p class="label" data-en="Data & IA Student — ISEP Paris" data-fr="Étudiante Data & IA — ISEP Paris">Data & IA Student — ISEP Paris</p>
+        <h1 data-en="I’m Lina. I’m building my path in AI, data and digital projects."
+            data-fr="Je suis Lina. Je construis mon parcours en IA, data et projets digitaux.">
+          I’m Lina. I’m building my path in AI, data and digital projects.
+        </h1>
+        <p class="intro" data-en="This portfolio is my public workspace: the place where I show my projects, document what I learn, and prepare for internships in tech."
+           data-fr="Ce portfolio est mon espace de travail public : l’endroit où je montre mes projets, je documente ce que j’apprends et je prépare mes stages en tech.">
+          This portfolio is my public workspace: the place where I show my projects, document what I learn, and prepare for internships in tech.
+        </p>
+
+        <div class="actions">
+          <a href="#work" class="btn btn-dark" data-en="Explore my work" data-fr="Voir mes projets">Explore my work</a>
+          <a href="#contact" class="btn btn-light" data-en="Contact me" data-fr="Me contacter">Contact me</a>
+        </div>
+
+        <div class="mini-grid">
+          <div><strong>01</strong><span>AI & Data</span></div>
+          <div><strong>02</strong><span>Web Projects</span></div>
+          <div><strong>03</strong><span>Learning Journal</span></div>
+        </div>
+      </div>
+
+      <aside class="hero-panel reveal">
+        <div class="avatar-card" aria-label="Lina initials avatar"></div>
+        <div class="status">
+          <span class="status-dot"></span>
+          <p data-en="Open to internships, student jobs and beginner-friendly tech opportunities."
+             data-fr="Ouverte aux stages, jobs étudiants et opportunités tech adaptées aux débutants.">
+            Open to internships, student jobs and beginner-friendly tech opportunities.
+          </p>
+        </div>
+        <div class="panel-block">
+          <p class="small-title" data-en="Current focus" data-fr="Focus actuel">Current focus</p>
+          <h2 data-en="Build useful projects and learn in public."
+              data-fr="Créer des projets utiles et apprendre en public.">
+            Build useful projects and learn in public.
+          </h2>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="section-title reveal">
+        <p class="label" data-en="About" data-fr="À propos">About</p>
+        <h2 data-en="A serious tech portfolio with a soft creative identity."
+            data-fr="Un portfolio tech sérieux avec une identité douce et créative.">
+          A serious tech portfolio with a soft creative identity.
+        </h2>
+      </div>
+
+      <div class="about-layout">
+        <div class="about-text reveal">
+          <p data-en="I’m a Data & IA student at ISEP Paris. I’m interested in artificial intelligence, data analysis, web development, robotics, and useful digital tools."
+             data-fr="Je suis étudiante en Data & IA à l’ISEP Paris. Je m’intéresse à l’intelligence artificielle, l’analyse de données, le développement web, la robotique et les outils digitaux utiles.">
+            I’m a Data & IA student at ISEP Paris. I’m interested in artificial intelligence, data analysis, web development, robotics, and useful digital tools.
+          </p>
+          <p data-en="I created this portfolio to show my progress, not only my final results. I want recruiters and collaborators to see how I think, what I build, and how I improve."
+             data-fr="J’ai créé ce portfolio pour montrer mon évolution, pas seulement mes résultats finaux. Je veux que les recruteurs et collaborateurs voient comment je réfléchis, ce que je construis et comment je progresse.">
+            I created this portfolio to show my progress, not only my final results. I want recruiters and collaborators to see how I think, what I build, and how I improve.
+          </p>
+        </div>
+
+        <div class="about-cards">
+          <article class="info-card reveal">
+            <h3>What I do</h3>
+            <p>Beginner web interfaces, data projects, dashboards, AI-inspired tools and school projects.</p>
+          </article>
+          <article class="info-card reveal">
+            <h3>What I value</h3>
+            <p>Clarity, consistency, useful design, clean documentation and learning by building.</p>
+          </article>
+          <article class="info-card reveal">
+            <h3>What I’m seeking</h3>
+            <p>Internships, student jobs and beginner tech opportunities in AI, data, web or IT.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section work" id="work">
+      <div class="section-title reveal">
+        <p class="label" data-en="Featured work" data-fr="Projets principaux">Featured work</p>
+        <h2 data-en="Real portfolio pieces I can grow this year."
+            data-fr="De vrais projets portfolio que je peux développer cette année.">
+          Real portfolio pieces I can grow this year.
+        </h2>
+      </div>
+
+      <div class="work-grid">
+        <article class="project-card big reveal">
+          <div class="project-visual">
+            <div class="mock-window">
+              <div class="window-dots"><span></span><span></span><span></span></div>
+              <div class="mock-title">Summer Dashboard</div>
+              <div class="mock-lines"><div></div><div></div><div></div></div>
+              <div class="mock-cards"><div></div><div></div><div></div></div>
+            </div>
+          </div>
+          <div class="project-content">
+            <p class="tag">Main Project</p>
+            <h3>Summer Reset Dashboard</h3>
+            <p data-en="A personal productivity dashboard for tracking habits, prayer, gym, applications, content creation, books, podcasts and tech projects. This can become my strongest summer portfolio project."
+               data-fr="Un dashboard personnel pour suivre habitudes, prière, gym, candidatures, contenu, livres, podcasts et projets tech. Ce projet peut devenir mon plus gros projet portfolio de l’été.">
+              A personal productivity dashboard for tracking habits, prayer, gym, applications, content creation, books, podcasts and tech projects. This can become my strongest summer portfolio project.
+            </p>
+            <ul>
+              <li>Daily tracking interface</li>
+              <li>Application and content calendar</li>
+              <li>Progress statistics</li>
+            </ul>
+            <div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-visual"><div class="mock-window"><div class="window-dots"><span></span><span></span><span></span></div><div class="mock-title">Data Analysis</div><div class="mock-lines"><div></div><div></div><div></div></div></div></div>
+          <div class="project-content">
+            <p class="tag">Data</p>
+            <h3>Mini Data Analysis Project</h3>
+            <p>A clean beginner data project with a dataset, charts, written insights and a simple report.</p>
+            <div class="chips"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-visual"><div class="mock-window"><div class="window-dots"><span></span><span></span><span></span></div><div class="mock-title">AI Assistant</div><div class="mock-lines"><div></div><div></div><div></div></div></div></div>
+          <div class="project-content">
+            <p class="tag">AI Tool</p>
+            <h3>AI Study Assistant</h3>
+            <p>A student tool that helps transform notes into flashcards, revision tasks and study checklists.</p>
+            <div class="chips"><span>JavaScript</span><span>UX</span><span>Prompting</span></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-visual"><div class="mock-window"><div class="window-dots"><span></span><span></span><span></span></div><div class="mock-title">Chess UI</div><div class="mock-lines"><div></div><div></div><div></div></div></div></div>
+          <div class="project-content">
+            <p class="tag">School</p>
+            <h3>Chess Game Interface</h3>
+            <p>A Python/Tkinter project using object-oriented programming, board logic and interface design.</p>
+            <div class="chips"><span>Python</span><span>Tkinter</span><span>OOP</span></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-visual"><div class="mock-window"><div class="window-dots"><span></span><span></span><span></span></div><div class="mock-title">Arduino</div><div class="mock-lines"><div></div><div></div><div></div></div></div></div>
+          <div class="project-content">
+            <p class="tag">Hardware</p>
+            <h3>Arduino Game Controller</h3>
+            <p>A controller project using joystick, buttons and LEDs to interact with a 2D game interface.</p>
+            <div class="chips"><span>Arduino</span><span>C</span><span>SDL2</span></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-visual"><div class="mock-window"><div class="window-dots"><span></span><span></span><span></span></div><div class="mock-title">Portfolio</div><div class="mock-lines"><div></div><div></div><div></div></div></div></div>
+          <div class="project-content">
+            <p class="tag">Web</p>
+            <h3>This Portfolio Website</h3>
+            <p>A responsive personal portfolio made with HTML, CSS and JavaScript to document my journey.</p>
+            <div class="chips"><span>HTML</span><span>CSS</span><span>JS</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section skills" id="skills">
+      <div class="section-title reveal">
+        <p class="label" data-en="Skills" data-fr="Compétences">Skills</p>
+        <h2 data-en="The skills I’m developing step by step."
+            data-fr="Les compétences que je développe étape par étape.">
+          The skills I’m developing step by step.
+        </h2>
+      </div>
+
+      <div class="skills-board reveal">
+        <div><h3>Programming</h3><p>Python, HTML, CSS, JavaScript, C basics, object-oriented programming.</p></div>
+        <div><h3>Data & AI</h3><p>Pandas, datasets, charts, machine learning basics, prompt engineering, AI tools.</p></div>
+        <div><h3>Tools</h3><p>GitHub, VS Code, Excel, Notion, Canva, Google Calendar, documentation workflows.</p></div>
+        <div><h3>Professional</h3><p>Organization, project planning, communication, learning in public, consistency.</p></div>
+      </div>
+    </section>
+
+    <section class="section timeline">
+      <div class="section-title reveal">
+        <p class="label" data-en="Roadmap" data-fr="Roadmap">Roadmap</p>
+        <h2 data-en="My learning roadmap from summer to December."
+            data-fr="Ma roadmap d’apprentissage de l’été à décembre.">
+          My learning roadmap from summer to December.
+        </h2>
+      </div>
+
+      <div class="timeline-list">
+        <div class="timeline-item reveal"><span>June</span><p>Python foundations, digital cleanup, first tech content.</p></div>
+        <div class="timeline-item reveal"><span>July</span><p>Pandas, small datasets, one mini analysis project, CV and LinkedIn updates.</p></div>
+        <div class="timeline-item reveal"><span>August</span><p>Machine learning basics, one trained model, weekly AI notes.</p></div>
+        <div class="timeline-item reveal"><span>September</span><p>GitHub consistency, stronger project, better study system.</p></div>
+        <div class="timeline-item reveal"><span>October</span><p>Prompt engineering, useful AI tools, build a tool for students.</p></div>
+        <div class="timeline-item reveal"><span>November–December</span><p>Polish best projects, improve portfolio, reflect and choose next focus.</p></div>
+      </div>
+    </section>
+
+    <section class="section journal" id="journal">
+      <div class="section-title reveal">
+        <p class="label" data-en="Learning journal" data-fr="Journal d’apprentissage">Learning journal</p>
+        <h2 data-en="Short notes I can publish as I learn."
+            data-fr="Des notes courtes que je peux publier pendant que j’apprends.">
+          Short notes I can publish as I learn.
+        </h2>
+      </div>
+
+      <div class="journal-grid">
+        <article class="note reveal"><span>01</span><h3>AI basics to know</h3><p>Machine learning, datasets, prompts, models and automation explained with simple examples.</p></article>
+        <article class="note reveal"><span>02</span><h3>How I build projects as a beginner</h3><p>My method: choose one small problem, build the first version, document it, then improve it.</p></article>
+        <article class="note reveal"><span>03</span><h3>My internship preparation system</h3><p>Portfolio, CV, GitHub, LinkedIn, daily applications and follow-up tracking.</p></article>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="contact-card reveal">
+        <p class="label" data-en="Contact" data-fr="Contact">Contact</p>
+        <h2 data-en="Let’s connect." data-fr="Contactons-nous.">Let’s connect.</h2>
+        <p data-en="I’m currently open to internships, student jobs and beginner-friendly tech opportunities."
+           data-fr="Je suis actuellement ouverte aux stages, jobs étudiants et opportunités tech adaptées aux débutants.">
+          I’m currently open to internships, student jobs and beginner-friendly tech opportunities.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:lina.saadallah@eleve.isep.fr">School email</a>
+          <a href="mailto:linasaadallah06@gmail.com">Personal email</a>
+          <a href="#">LinkedIn link soon</a>
+          <a href="#">GitHub link soon</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Lina Saadallah — Data & IA Student Portfolio</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach((item) => observer.observe(item));
+
+    const menuBtn = document.getElementById("menuBtn");
+    const nav = document.getElementById("nav");
+    menuBtn.addEventListener("click", () => nav.classList.toggle("open"));
+    nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => nav.classList.remove("open")));
+
+    let lang = "en";
+    const langBtn = document.getElementById("langBtn");
+
+    function setLang(next) {
+      document.querySelectorAll("[data-en][data-fr]").forEach((el) => {
+        el.textContent = el.dataset[next];
+      });
+      langBtn.textContent = next === "en" ? "FR" : "EN";
+    }
+
+    langBtn.addEventListener("click", () => {
+      lang = lang === "en" ? "fr" : "en";
+      setLang(lang);
+    });
+    setLang(lang);
+  </script>
+</body>
+</html>
