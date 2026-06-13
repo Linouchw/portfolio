@@ -1,9 +1,33 @@
-# Lina Portfolio Fixed
+# Personal Portfolio
 
-This version is a SINGLE HTML FILE.
-The CSS and JavaScript are inside `index.html`, so the design cannot break because of missing CSS.
+This is my personal portfolio website as a Data & IA student at ISEP Paris.
 
-Open:
-- Double-click `index.html`
+## About
 
-No need to open from VS Code, no need to keep separate CSS files.
+This website presents my tech journey, projects, learning journal, skills, and internship availability.
+
+I built it to document my progress and show my interest in AI, data, web development, and digital projects.
+
+## Built with
+
+- HTML
+- CSS
+- JavaScript
+
+## Sections
+
+- About me
+- Featured projects
+- Skills
+- Learning roadmap
+- Learning journal
+- Contact
+
+## Live website
+
+https://linouchw.github.io/portfolio/
+
+## Contact
+
+- School email: lina.saadallah@eleve.isep.fr
+- Personal email: linasaadallah06@gmail.com
